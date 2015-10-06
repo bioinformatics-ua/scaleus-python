@@ -1,3 +1,10 @@
+# JetBrains IDE
+*.iml
+.idea/
+
+# python
+*.pyc
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
