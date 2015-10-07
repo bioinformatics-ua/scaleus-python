@@ -46,3 +46,14 @@ class Scaleus:
         payload = {'query': query, 'inference': inference, 'rules': rules, 'format': format}
         content = requests.get(self.host + 'sparqler/' + dataset + '/sparql', params=payload)
         return content.text
+
+    def get_data(self, dataset):
+        content = requests.get(self.host + 'data/' + dataset)
+        return content.text
+
+    def replace_data(self, dataset, data):
+        headers = {'content-type': 'application/x-www-form-urlencoded'}
+        payload = {'data': data}
+        content = requests.post(self.host + 'data/' + dataset, payload, headers=headers)
+        content.raise_for_status()
+
